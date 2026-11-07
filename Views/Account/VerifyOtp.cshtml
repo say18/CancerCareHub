@@ -1,0 +1,63 @@
+
+@model CancerCareHub.Models.VerifyOtpViewModel
+
+@{
+    ViewData["Title"] = "Verify Email";
+}
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+
+                    <h2 class="text-center mb-3">
+                        Verify Your Email
+                    </h2>
+
+                    <p class="text-center text-muted">
+                        We sent a 6-digit verification code to your email.
+                    </p>
+
+                    <form asp-action="VerifyOtp" method="post">
+
+                        <div asp-validation-summary="ModelOnly"
+                             class="text-danger mb-3"></div>
+
+                        <input asp-for="Email" type="hidden" />
+
+                        <div class="mb-3">
+                            <label asp-for="Code" class="form-label">
+                                6-Digit OTP
+                            </label>
+
+                            <input asp-for="Code"
+                                   class="form-control text-center"
+                                   placeholder="Enter OTP"
+                                   maxlength="6"
+                                   inputmode="numeric"
+                                   autocomplete="one-time-code" />
+
+                            <span asp-validation-for="Code"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">
+                                Verify Email
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

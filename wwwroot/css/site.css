@@ -1,0 +1,550 @@
+
+/* ========================================
+   CANCER CARE HUB BANGLADESH
+   Homepage design system
+======================================== */
+
+:root {
+    --cc-navy: #102b3f;
+    --cc-navy-light: #193c51;
+    --cc-teal: #087f70;
+    --cc-teal-dark: #06685d;
+    --cc-mint: #eaf6f2;
+    --cc-background: #f7faf9;
+    --cc-text: #263746;
+    --cc-muted: #657785;
+    --cc-border: #e1e9e7;
+    --cc-white: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--cc-text);
+    background: var(--cc-white);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.cc-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 90% 15%, #d8f0e8 0, transparent 36%),
+        linear-gradient(135deg, #f6faf9 0%, #edf7f3 100%);
+    padding: 90px 0 100px;
+}
+
+.cc-hero-container {
+    position: relative;
+    z-index: 1;
+}
+
+.cc-eyebrow,
+.cc-section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--cc-teal-dark);
+    font-size: 0.76rem;
+    font-weight: 750;
+    letter-spacing: 1.5px;
+    margin-bottom: 22px;
+}
+
+.cc-status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #16a085;
+    flex-shrink: 0;
+}
+
+.cc-hero-title {
+    max-width: 700px;
+    color: var(--cc-navy);
+    font-size: clamp(2.6rem, 5vw, 4.25rem);
+    font-weight: 750;
+    letter-spacing: -2.2px;
+    line-height: 1.12;
+    margin: 0;
+}
+
+.cc-hero-title span {
+    color: var(--cc-teal);
+}
+
+.cc-hero-description {
+    max-width: 610px;
+    color: var(--cc-muted);
+    font-size: 1.08rem;
+    line-height: 1.85;
+    margin-top: 24px;
+}
+
+.cc-btn-primary,
+.cc-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    min-height: 52px;
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-weight: 650;
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.cc-btn-primary {
+    background: var(--cc-teal);
+    border: 1px solid var(--cc-teal);
+    color: var(--cc-white);
+}
+
+.cc-btn-primary:hover {
+    background: var(--cc-teal-dark);
+    border-color: var(--cc-teal-dark);
+    color: var(--cc-white);
+    transform: translateY(-2px);
+}
+
+.cc-btn-outline {
+    background: transparent;
+    border: 1px solid #b8cdc7;
+    color: var(--cc-navy);
+}
+
+.cc-btn-outline:hover {
+    color: var(--cc-teal-dark);
+    background: var(--cc-white);
+    border-color: var(--cc-teal);
+}
+
+.cc-trust-note {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--cc-muted);
+    font-size: 0.84rem;
+    margin-top: 28px;
+}
+
+.cc-trust-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: #d5eee5;
+    color: var(--cc-teal-dark);
+    font-weight: 800;
+}
+
+.cc-hero-panel {
+    background: var(--cc-white);
+    border: 1px solid rgba(16, 43, 63, 0.08);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 22px 65px rgba(16, 43, 63, 0.09);
+}
+
+.cc-panel-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.cc-panel-label {
+    color: var(--cc-teal);
+    font-size: 0.68rem;
+    font-weight: 750;
+    letter-spacing: 1.3px;
+}
+
+.cc-panel-title {
+    color: var(--cc-navy);
+    font-size: 1.45rem;
+    font-weight: 750;
+    line-height: 1.4;
+    margin-top: 9px;
+}
+
+.cc-panel-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    background: var(--cc-mint);
+    color: var(--cc-teal);
+    border-radius: 12px;
+    font-size: 1.7rem;
+}
+
+.cc-quick-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 17px 0;
+    color: inherit;
+    text-decoration: none;
+    border-top: 1px solid var(--cc-border);
+}
+
+.cc-quick-link:hover .cc-link-arrow {
+    color: var(--cc-teal);
+    transform: translateX(4px);
+}
+
+.cc-link-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: var(--cc-mint);
+    color: var(--cc-teal-dark);
+    font-weight: 750;
+}
+
+.cc-link-copy {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.cc-link-copy strong {
+    color: var(--cc-navy);
+    font-size: 0.92rem;
+}
+
+.cc-link-copy small {
+    color: var(--cc-muted);
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+.cc-link-arrow {
+    color: #82938f;
+    transition: transform 0.2s ease;
+}
+
+.cc-panel-footer {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--cc-background);
+    color: var(--cc-muted);
+    border-radius: 8px;
+    padding: 13px;
+    margin-top: 10px;
+    font-size: 0.77rem;
+}
+
+.cc-intro-section {
+    padding: 85px 0 45px;
+}
+
+.cc-section-title {
+    color: var(--cc-navy);
+    font-size: clamp(1.8rem, 3vw, 2.55rem);
+    font-weight: 750;
+    letter-spacing: -0.8px;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.cc-section-description {
+    color: var(--cc-muted);
+    line-height: 1.9;
+    margin-bottom: 4px;
+}
+
+.cc-directory-section {
+    padding: 35px 0 100px;
+}
+
+.cc-section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 35px;
+}
+
+.cc-heading-note {
+    color: var(--cc-muted);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.cc-directory-card {
+    height: 100%;
+    padding: 30px 27px;
+    background: var(--cc-white);
+    border: 1px solid var(--cc-border);
+    border-radius: 14px;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+}
+
+.cc-directory-card:hover {
+    border-color: #a8d4c7;
+    box-shadow: 0 15px 38px rgba(16, 43, 63, 0.07);
+    transform: translateY(-4px);
+}
+
+.cc-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--cc-mint);
+    border-radius: 12px;
+    color: var(--cc-teal-dark);
+    font-size: 1.15rem;
+    font-weight: 750;
+    margin-bottom: 25px;
+}
+
+.cc-card-kicker {
+    display: block;
+    color: var(--cc-muted);
+    font-size: 0.67rem;
+    font-weight: 750;
+    letter-spacing: 1.2px;
+    margin-bottom: 12px;
+}
+
+.cc-directory-card h3 {
+    color: var(--cc-navy);
+    font-size: 1.2rem;
+    font-weight: 750;
+    line-height: 1.45;
+}
+
+.cc-directory-card p {
+    color: var(--cc-muted);
+    font-size: 0.91rem;
+    line-height: 1.8;
+    margin-top: 12px;
+    margin-bottom: 25px;
+}
+
+.cc-card-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    color: var(--cc-teal-dark);
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.cc-card-link:hover {
+    color: var(--cc-navy);
+}
+
+.cc-transparency-section {
+    padding: 85px 0;
+    background: var(--cc-navy);
+}
+
+.cc-label-light {
+    color: #9fe1d0;
+}
+
+.cc-transparency-title {
+    max-width: 570px;
+    color: var(--cc-white);
+    font-size: clamp(2rem, 3.5vw, 3.1rem);
+    font-weight: 750;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+.cc-transparency-description {
+    max-width: 550px;
+    color: #c5d4dd;
+    line-height: 1.9;
+    margin-top: 22px;
+    margin-bottom: 0;
+}
+
+.cc-principle {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 23px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cc-principle:first-child {
+    padding-top: 0;
+}
+
+.cc-principle-number {
+    color: #8dd9c5;
+    font-size: 0.83rem;
+    font-weight: 750;
+    padding-top: 3px;
+}
+
+.cc-principle h3 {
+    color: var(--cc-white);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.cc-principle p {
+    color: #c5d4dd;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.cc-cta-section {
+    padding: 85px 0;
+}
+
+.cc-cta-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    padding: 42px;
+    background: var(--cc-background);
+    border: 1px solid var(--cc-border);
+    border-radius: 16px;
+}
+
+.cc-cta-card h2 {
+    max-width: 600px;
+    color: var(--cc-navy);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 750;
+    line-height: 1.3;
+}
+
+.cc-cta-card p {
+    max-width: 620px;
+    color: var(--cc-muted);
+    line-height: 1.8;
+    margin: 12px 0 0;
+}
+
+.cc-disclaimer {
+    padding: 30px 0;
+    background: #f3f6f5;
+    border-top: 1px solid var(--cc-border);
+}
+
+.cc-disclaimer strong {
+    color: var(--cc-navy);
+    font-size: 0.86rem;
+}
+
+.cc-disclaimer p {
+    max-width: 900px;
+    color: var(--cc-muted);
+    font-size: 0.82rem;
+    line-height: 1.8;
+    margin: 8px 0 0;
+}
+
+@media (max-width: 767.98px) {
+    .cc-hero {
+        padding: 55px 0 65px;
+    }
+
+    .cc-hero-title {
+        letter-spacing: -1.3px;
+    }
+
+    .cc-hero-panel {
+        padding: 23px;
+    }
+
+    .cc-intro-section {
+        padding-top: 60px;
+    }
+
+    .cc-directory-section {
+        padding-bottom: 65px;
+    }
+
+    .cc-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .cc-transparency-section {
+        padding: 60px 0;
+    }
+
+    .cc-cta-section {
+        padding: 55px 0;
+    }
+
+    .cc-cta-card {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 27px;
+    }
+
+    .cc-btn-primary,
+    .cc-btn-outline {
+        width: 100%;
+    }
+}
+
+/* Brand styling */
+
+.navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+}
+
+.brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background: #087f70;
+    color: white;
+    border-radius: 9px;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.brand-name {
+    color: #102b3f;
+    font-size: 19px;
+    font-weight: 750;
+}
+
+.brand-country {
+    color: #087f70;
+    font-size: 9px;
+    font-weight: 750;
+    letter-spacing: 1px;
+}

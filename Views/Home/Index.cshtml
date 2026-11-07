@@ -1,0 +1,269 @@
+﻿
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- HERO SECTION -->
+<section class="cc-hero">
+    <div class="container cc-hero-container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+                <div class="cc-eyebrow">
+                    <span class="cc-status-dot"></span>
+                    CANCER CARE HUB BANGLADESH
+                </div>
+
+                <h1 class="cc-hero-title">
+                    Your journey to better care
+                    starts with <span>the right information.</span>
+                </h1>
+
+                <p class="cc-hero-description">
+                    Discover cancer care hospitals, medical services,
+                    and doctor information across Bangladesh through
+                    one accessible, source-transparent platform.
+                </p>
+
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="#explore" class="btn cc-btn-primary">
+                        Explore Care Options
+                        <span aria-hidden="true">&rarr;</span>
+                    </a>
+
+                    <a asp-controller="Account"
+                       asp-action="Register"
+                       class="btn cc-btn-outline">
+                        Create an Account
+                    </a>
+                </div>
+
+                <div class="cc-trust-note">
+                    <span class="cc-trust-check">✓</span>
+                    Information transparency. Better-informed decisions.
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="cc-hero-panel">
+                    <div class="cc-panel-top">
+                        <div>
+                            <span class="cc-panel-label">CARE NAVIGATION</span>
+                            <h2 class="cc-panel-title">
+                                Where would you like to start?
+                            </h2>
+                        </div>
+                        <div class="cc-panel-symbol" aria-hidden="true">+</div>
+                    </div>
+
+                    <a href="#hospitals" class="cc-quick-link">
+                        <span class="cc-link-icon">H</span>
+                        <span class="cc-link-copy">
+                            <strong>Find a Hospital</strong>
+                            <small>Explore facilities and contact details</small>
+                        </span>
+                        <span class="cc-link-arrow">&rarr;</span>
+                    </a>
+
+                    <a href="#services" class="cc-quick-link">
+                        <span class="cc-link-icon">S</span>
+                        <span class="cc-link-copy">
+                            <strong>Explore Cancer Services</strong>
+                            <small>Learn about listed care services</small>
+                        </span>
+                        <span class="cc-link-arrow">&rarr;</span>
+                    </a>
+
+                    <a href="#doctors" class="cc-quick-link">
+                        <span class="cc-link-icon">D</span>
+                        <span class="cc-link-copy">
+                            <strong>Find Doctor Information</strong>
+                            <small>Explore specialties and affiliations</small>
+                        </span>
+                        <span class="cc-link-arrow">&rarr;</span>
+                    </a>
+
+                    <div class="cc-panel-footer">
+                        <span class="cc-status-dot"></span>
+                        A clearer way to navigate care information
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INTRODUCTION -->
+<section class="cc-intro-section">
+    <div class="container">
+        <div class="row align-items-end g-3">
+            <div class="col-lg-7">
+                <span class="cc-section-label">A MORE INFORMED APPROACH</span>
+                <h2 class="cc-section-title">
+                    Healthcare information, organized around you.
+                </h2>
+            </div>
+
+            <div class="col-lg-5">
+                <p class="cc-section-description">
+                    Finding reliable information should not mean
+                    navigating countless disconnected sources.
+                    We bring essential directory information together
+                    in one straightforward experience.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DIRECTORY CARDS -->
+<section id="explore" class="cc-directory-section">
+    <div class="container">
+        <div class="cc-section-heading">
+            <div>
+                <span class="cc-section-label">EXPLORE THE DIRECTORY</span>
+                <h2 class="cc-section-title">Find the information you need.</h2>
+            </div>
+
+            <p class="cc-heading-note">
+                Explore available information by category.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4" id="hospitals">
+                <article class="cc-directory-card">
+                    <div class="cc-card-icon">H</div>
+                    <span class="cc-card-kicker">01 / FACILITIES</span>
+                    <h3>Hospitals & Care Facilities</h3>
+                    <p>
+                        Explore facility profiles, locations, contact
+                        information and listed cancer-related services.
+                    </p>
+                    <a href="#information"
+                       class="cc-card-link">
+                        Explore hospital information <span>&rarr;</span>
+                    </a>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4" id="services">
+                <article class="cc-directory-card">
+                    <div class="cc-card-icon">S</div>
+                    <span class="cc-card-kicker">02 / TREATMENT SERVICES</span>
+                    <h3>Cancer Care Services</h3>
+                    <p>
+                        Learn about listed services and the healthcare
+                        facilities associated with them.
+                    </p>
+                    <a href="#information"
+                       class="cc-card-link">
+                        Explore service information <span>&rarr;</span>
+                    </a>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4" id="doctors">
+                <article class="cc-directory-card">
+                    <div class="cc-card-icon">D</div>
+                    <span class="cc-card-kicker">03 / PROFESSIONALS</span>
+                    <h3>Doctors & Specialties</h3>
+                    <p>
+                        Explore doctor profiles, professional specialties,
+                        hospital affiliations and published schedules.
+                    </p>
+                    <a href="#information"
+                       class="cc-card-link">
+                        Explore doctor information <span>&rarr;</span>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRANSPARENCY SECTION -->
+<section id="information" class="cc-transparency-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="cc-section-label cc-label-light">
+                    BUILT AROUND TRANSPARENCY
+                </span>
+
+                <h2 class="cc-transparency-title">
+                    Know where the information comes from.
+                </h2>
+
+                <p class="cc-transparency-description">
+                    Healthcare information deserves careful handling.
+                    Our platform is designed to display available
+                    source references, verification status and
+                    review dates so users can better assess the
+                    information presented.
+                </p>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="cc-principle">
+                    <span class="cc-principle-number">01</span>
+                    <div>
+                        <h3>Source transparency</h3>
+                        <p>Show the source of information where available.</p>
+                    </div>
+                </div>
+
+                <div class="cc-principle">
+                    <span class="cc-principle-number">02</span>
+                    <div>
+                        <h3>Visible review status</h3>
+                        <p>Distinguish reviewed records from information needing review.</p>
+                    </div>
+                </div>
+
+                <div class="cc-principle">
+                    <span class="cc-principle-number">03</span>
+                    <div>
+                        <h3>Honest cost information</h3>
+                        <p>Display “Not available” when reliable cost information cannot be established.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ACCOUNT CTA -->
+<section class="cc-cta-section">
+    <div class="container">
+        <div class="cc-cta-card">
+            <div>
+                <span class="cc-section-label">YOUR CARE JOURNEY</span>
+                <h2>Keep important care information organized.</h2>
+                <p>
+                    Create an account to access patient-oriented
+                    features as they become available on the platform.
+                </p>
+            </div>
+
+            <a asp-controller="Account"
+               asp-action="Register"
+               class="btn cc-btn-primary">
+                Get Started <span>&rarr;</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- MEDICAL DISCLAIMER -->
+<section class="cc-disclaimer">
+    <div class="container">
+        <strong>Important information</strong>
+        <p>
+            Cancer Care Hub Bangladesh is an informational care-navigation
+            platform. It does not diagnose medical conditions, recommend
+            individual treatment or replace advice from qualified
+            healthcare professionals. Confirm important details directly
+            with the relevant healthcare provider.
+        </p>
+    </div>
+</section>

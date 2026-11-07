@@ -1,0 +1,20 @@
+
+@{
+    ViewData["Title"] = "Doctor Dashboard";
+}
+
+<div class="container mt-5">
+    <h2>Doctor Dashboard</h2>
+    <p>Welcome to your Doctor Panel.</p>
+
+    <ul>
+        <li>Manage Doctor Profile</li>
+        <li>Manage Hospital Affiliations</li>
+        <li>Manage Availability</li>
+        <li>View Appointment Requests</li>
+    </ul>
+
+    <form asp-controller="Account" asp-action="Logout" method="post">
+        <button class="btn btn-danger" type="submit">Logout</button>
+    </form>
+</div>
