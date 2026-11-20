@@ -1,0 +1,1040 @@
+
+/* =========================================================
+   CANCER CARE HUB BANGLADESH
+   PATIENT DASHBOARD CSS
+
+   01. Variables
+   02. Global Styles
+   03. Dashboard Layout
+   04. Sidebar Brand
+   05. Sidebar Navigation
+   06. Sidebar Bottom
+   07. Main Content
+   08. Topbar
+   09. Avatar and Profile
+   10. Welcome Section
+   11. Section Headings
+   12. Statistics Cards
+   13. Care Modules
+   14. Appointment Panel
+   15. Empty State
+   16. Profile and Safety
+   17. Footer
+   18. Tablet Responsive
+   19. Mobile Responsive
+   ========================================================= */
+
+
+/* =========================================================
+   01. ROOT VARIABLES
+   ========================================================= */
+
+:root {
+    --ch-primary: #6855d9;
+    --ch-primary-dark: #5140bd;
+    --ch-primary-light: #f0edff;
+
+    --ch-sidebar: #211d3b;
+    --ch-sidebar-text: #c0bad3;
+
+    --ch-bg: #f6f7fb;
+    --ch-white: #ffffff;
+
+    --ch-heading: #25243a;
+    --ch-text: #666b80;
+    --ch-muted: #9699a9;
+
+    --ch-border: #ececf3;
+
+    --ch-green: #20a779;
+    --ch-blue: #438bd8;
+    --ch-orange: #e69a42;
+
+    --ch-shadow: 0 6px 24px rgba(37, 31, 74, 0.055);
+}
+
+
+/* =========================================================
+   02. GLOBAL STYLES
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.ch-patient-page {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: var(--ch-bg);
+    color: var(--ch-heading);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+}
+
+.ch-dashboard,
+.ch-dashboard * {
+    box-sizing: border-box;
+}
+
+.ch-dashboard a {
+    text-decoration: none;
+}
+
+.ch-dashboard button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   03. DASHBOARD LAYOUT
+   ========================================================= */
+
+.ch-dashboard {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--ch-bg);
+}
+
+.ch-sidebar {
+    width: 255px;
+    min-width: 255px;
+    min-height: 100vh;
+    padding: 27px 17px;
+    background: var(--ch-sidebar);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.ch-main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   04. SIDEBAR BRAND
+   ========================================================= */
+
+.ch-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0 9px 32px;
+    color: white;
+}
+
+.ch-brand:hover {
+    color: white;
+}
+
+.ch-brand-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--ch-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.ch-brand > span:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.ch-brand strong {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.ch-brand small {
+    color: var(--ch-sidebar-text);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   05. SIDEBAR NAVIGATION
+   ========================================================= */
+
+.ch-side-label {
+    padding: 8px 12px 13px;
+    color: #817b9b;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.ch-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.ch-nav-link {
+    min-height: 45px;
+    padding: 0 13px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    color: var(--ch-sidebar-text);
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.ch-nav-link:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.ch-nav-link.active {
+    background: var(--ch-primary);
+    color: white;
+    box-shadow: 0 5px 15px rgba(104, 85, 217, 0.24);
+}
+
+.ch-nav-icon {
+    width: 20px;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   06. SIDEBAR BOTTOM
+   ========================================================= */
+
+.ch-sidebar-bottom {
+    margin-top: auto;
+    padding-top: 25px;
+}
+
+.ch-sidebar-note {
+    margin: 0 3px 20px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(255, 255, 255, 0.055);
+    border-radius: 12px;
+}
+
+.ch-sidebar-note strong {
+    color: white;
+    font-size: 12px;
+}
+
+.ch-sidebar-note p {
+    margin: 8px 0 0;
+    color: #aaa5c1;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.ch-sidebar-bottom > a {
+    margin-bottom: 7px;
+}
+
+.ch-sidebar-bottom form {
+    margin: 0;
+}
+
+.ch-logout {
+    width: 100%;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 0 13px;
+    background: transparent;
+    border: 0;
+    border-radius: 10px;
+    color: #d7a7ae;
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.ch-logout:hover {
+    background: rgba(217, 94, 107, 0.12);
+    color: #ffb9c0;
+}
+
+
+/* =========================================================
+   07. MAIN CONTENT
+   ========================================================= */
+
+.ch-section {
+    margin-bottom: 29px;
+}
+
+.ch-main > section,
+.ch-bottom-grid,
+.ch-footer {
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+
+/* =========================================================
+   08. TOPBAR
+   ========================================================= */
+
+.ch-topbar {
+    min-height: 85px;
+    padding: 15px 32px;
+    background: white;
+    border-bottom: 1px solid var(--ch-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.ch-breadcrumb {
+    color: var(--ch-muted);
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.ch-topbar h1 {
+    margin: 0;
+    color: var(--ch-heading);
+    font-size: 21px;
+    font-weight: 750;
+}
+
+.ch-top-profile {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.ch-patient-badge {
+    padding: 7px 11px;
+    border-radius: 20px;
+    background: var(--ch-primary-light);
+    color: var(--ch-primary);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   09. AVATAR AND PROFILE TEXT
+   ========================================================= */
+
+.ch-avatar {
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ch-primary-light);
+    color: var(--ch-primary);
+    font-size: 16px;
+    font-weight: 750;
+    flex-shrink: 0;
+}
+
+.ch-profile-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ch-profile-text strong {
+    color: var(--ch-heading);
+    font-size: 12px;
+}
+
+.ch-profile-text small {
+    color: var(--ch-muted);
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   10. WELCOME SECTION
+   ========================================================= */
+
+.ch-welcome {
+    margin: 28px 32px 30px;
+    min-height: 220px;
+    padding: 30px 32px;
+    border-radius: 17px;
+    background: linear-gradient(115deg, #6250c9, #8975eb);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ch-patient-welcome::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    right: 9%;
+    top: -145px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.ch-welcome-content {
+    position: relative;
+    z-index: 1;
+}
+
+.ch-eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.ch-welcome h2 {
+    margin: 0 0 10px;
+    color: white;
+    font-size: 27px;
+    font-weight: 750;
+}
+
+.ch-welcome p {
+    max-width: 530px;
+    margin: 0 0 22px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.ch-primary-button {
+    min-height: 41px;
+    padding: 0 17px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border-radius: 8px;
+    background: white;
+    color: var(--ch-primary-dark);
+    font-size: 12px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.ch-primary-button:hover {
+    background: #f1efff;
+    color: var(--ch-primary-dark);
+    transform: translateY(-2px);
+}
+
+.ch-primary-button span {
+    font-size: 17px;
+}
+
+.ch-patient-illustration {
+    min-width: 190px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.ch-illustration-circle {
+    width: 115px;
+    height: 115px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 52px;
+    font-weight: 700;
+}
+
+.ch-patient-illustration > span {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   11. SECTION HEADINGS
+   ========================================================= */
+
+.ch-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 16px;
+}
+
+.ch-section-heading h3,
+.ch-panel-heading h3 {
+    margin: 0;
+    color: var(--ch-heading);
+    font-size: 16px;
+    font-weight: 750;
+}
+
+.ch-section-heading p,
+.ch-panel-heading p {
+    margin: 5px 0 0;
+    color: var(--ch-muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.ch-demo-label {
+    padding: 7px 10px;
+    border-radius: 6px;
+    background: #fff3df;
+    color: #b47b2e;
+    font-size: 9px;
+    font-weight: 750;
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   12. STATISTICS CARDS
+   ========================================================= */
+
+.ch-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.ch-stat-card {
+    padding: 20px;
+    border: 1px solid var(--ch-border);
+    border-radius: 13px;
+    background: white;
+    box-shadow: var(--ch-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ch-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(37, 31, 74, 0.09);
+}
+
+.ch-stat-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.ch-stat-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    font-size: 19px;
+}
+
+.ch-stat-icon.blue {
+    background: #eaf3ff;
+    color: var(--ch-blue);
+}
+
+.ch-stat-icon.green {
+    background: #e5f7ef;
+    color: var(--ch-green);
+}
+
+.ch-stat-icon.purple {
+    background: var(--ch-primary-light);
+    color: var(--ch-primary);
+}
+
+.ch-stat-caption {
+    color: var(--ch-muted);
+    font-size: 9px;
+    font-weight: 750;
+    letter-spacing: 1px;
+}
+
+.ch-stat-card h2 {
+    margin: 17px 0 5px;
+    color: var(--ch-heading);
+    font-size: 27px;
+    font-weight: 750;
+}
+
+.ch-stat-card p {
+    margin: 0;
+    color: var(--ch-muted);
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   13. EXPLORE CARE MODULES
+   ========================================================= */
+
+.ch-module-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.ch-module-card {
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid var(--ch-border);
+    border-radius: 14px;
+    background: white;
+    box-shadow: var(--ch-shadow);
+    transition: all 0.2s ease;
+}
+
+.ch-module-card:hover {
+    transform: translateY(-3px);
+    border-color: #dcd6ff;
+    box-shadow: 0 12px 28px rgba(37, 31, 74, 0.08);
+}
+
+.ch-module-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 21px;
+}
+
+.ch-module-icon.doctor-icon {
+    background: #eaf3ff;
+    color: var(--ch-blue);
+}
+
+.ch-module-icon.hospital-icon {
+    background: #e5f7ef;
+    color: var(--ch-green);
+}
+
+.ch-module-icon.service-icon {
+    background: var(--ch-primary-light);
+    color: var(--ch-primary);
+}
+
+.ch-module-card h4 {
+    margin: 0 0 9px;
+    color: var(--ch-heading);
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.ch-module-card p {
+    min-height: 58px;
+    margin: 0 0 17px;
+    color: var(--ch-text);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.ch-coming-soon {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: #f2f0ff;
+    color: var(--ch-primary);
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   14. APPOINTMENT REQUEST PANEL
+   ========================================================= */
+
+.ch-panel-card {
+    padding: 22px;
+    border: 1px solid var(--ch-border);
+    border-radius: 14px;
+    background: white;
+    box-shadow: var(--ch-shadow);
+}
+
+.ch-panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 19px;
+    border-bottom: 1px solid var(--ch-border);
+}
+
+.ch-status-pending {
+    display: inline-flex;
+    padding: 7px 11px;
+    border-radius: 20px;
+    background: #fff4e3;
+    color: #b47a2b;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   15. EMPTY STATE
+   ========================================================= */
+
+.ch-empty-state {
+    min-height: 175px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+.ch-empty-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 13px;
+    border-radius: 50%;
+    background: var(--ch-primary-light);
+    color: var(--ch-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.ch-empty-state strong {
+    margin-bottom: 7px;
+    color: var(--ch-heading);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.ch-empty-state span {
+    max-width: 380px;
+    color: var(--ch-muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   16. PROFILE AND SAFETY CARDS
+   ========================================================= */
+
+.ch-bottom-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+    margin-bottom: 28px;
+}
+
+.ch-bottom-grid .ch-panel-card {
+    min-width: 0;
+}
+
+.ch-panel-card h3 {
+    margin: 0 0 6px;
+    color: var(--ch-heading);
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.ch-panel-card > p {
+    margin: 0;
+    color: var(--ch-muted);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.ch-profile-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 20px 0;
+}
+
+.ch-profile-info > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ch-profile-info strong {
+    color: var(--ch-heading);
+    font-size: 13px;
+}
+
+.ch-profile-info span {
+    color: var(--ch-muted);
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.ch-safety-card {
+    background: #fbfaff;
+    border-color: #e8e3ff;
+}
+
+.ch-safety-icon {
+    width: 37px;
+    height: 37px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    background: var(--ch-primary-light);
+    color: var(--ch-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   17. FOOTER
+   ========================================================= */
+
+.ch-footer {
+    margin-top: auto;
+    padding: 19px 0;
+    border-top: 1px solid var(--ch-border);
+    color: var(--ch-muted);
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   18. TABLET RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .ch-sidebar {
+        width: 220px;
+        min-width: 220px;
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .ch-main > section,
+    .ch-bottom-grid,
+    .ch-footer {
+        margin-left: 23px;
+        margin-right: 23px;
+    }
+
+    .ch-welcome {
+        margin-left: 23px;
+        margin-right: 23px;
+    }
+
+    .ch-topbar {
+        padding-left: 23px;
+        padding-right: 23px;
+    }
+
+    .ch-stat-grid {
+        gap: 12px;
+    }
+
+    .ch-module-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   19. MOBILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .ch-dashboard {
+        flex-direction: column;
+    }
+
+    .ch-sidebar {
+        width: 100%;
+        min-width: 0;
+        min-height: auto;
+        padding: 16px;
+    }
+
+    .ch-brand {
+        padding: 0 4px 17px;
+    }
+
+    .ch-side-label {
+        padding: 9px 5px;
+    }
+
+    .ch-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .ch-nav-link {
+        min-height: 40px;
+        padding: 0 9px;
+        font-size: 11px;
+        gap: 8px;
+    }
+
+    .ch-nav-icon {
+        font-size: 15px;
+    }
+
+    .ch-sidebar-bottom {
+        padding-top: 15px;
+    }
+
+    .ch-sidebar-note {
+        margin-bottom: 12px;
+    }
+
+    .ch-main {
+        width: 100%;
+    }
+
+    .ch-topbar {
+        padding: 16px 18px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .ch-top-profile {
+        width: 100%;
+    }
+
+    .ch-main > section,
+    .ch-bottom-grid,
+    .ch-footer {
+        margin-left: 17px;
+        margin-right: 17px;
+    }
+
+    .ch-welcome {
+        margin: 19px 17px 24px;
+        padding: 24px 20px;
+    }
+
+    .ch-welcome h2 {
+        font-size: 23px;
+    }
+
+    .ch-patient-illustration {
+        display: none;
+    }
+
+    .ch-stat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ch-module-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ch-bottom-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ch-panel-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .ch-footer {
+        padding: 17px 0;
+    }
+}
+
+
+/* =========================================================
+   20. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .ch-nav {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ch-topbar h1 {
+        font-size: 18px;
+    }
+
+    .ch-patient-badge {
+        font-size: 9px;
+    }
+
+    .ch-welcome {
+        padding: 21px 17px;
+    }
+
+    .ch-welcome h2 {
+        font-size: 21px;
+    }
+
+    .ch-welcome p {
+        font-size: 12px;
+    }
+
+    .ch-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .ch-demo-label {
+        font-size: 8px;
+    }
+
+    .ch-stat-card,
+    .ch-module-card,
+    .ch-panel-card {
+        padding: 17px;
+    }
+
+    .ch-status-pending {
+        white-space: normal;
+    }
+}

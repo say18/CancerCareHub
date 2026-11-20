@@ -1,21 +1,547 @@
 
 @{
+    Layout = null;
     ViewData["Title"] = "Admin Dashboard";
 }
 
-<div class="container mt-5">
-    <h2>Admin Dashboard</h2>
-    <p>Welcome to Cancer Care Hub Administration.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <ul>
-        <li>Manage Patients</li>
-        <li>Manage Doctors</li>
-        <li>Manage Hospitals</li>
-        <li>Manage Cancer Services</li>
-        <li>Review Information</li>
-    </ul>
+    <title>Admin Dashboard | Cancer Care Hub Bangladesh</title>
 
-    <form asp-controller="Account" asp-action="Logout" method="post">
-        <button class="btn btn-danger" type="submit">Logout</button>
-    </form>
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Admin Dashboard CSS -->
+    <link rel="stylesheet"
+          href="~/css/admin-dashboard.css"
+          asp-append-version="true" />
+</head>
+
+<body class="admin-dashboard-page">
+
+<div class="admin-shell">
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="admin-sidebar">
+
+        <!-- Brand -->
+
+        <a asp-controller="Home"
+           asp-action="Index"
+           class="admin-brand">
+
+            <span class="admin-brand-mark">+</span>
+
+            <span class="admin-brand-text">
+                <strong>Cancer Care Hub</strong>
+                <small>BANGLADESH · ADMIN</small>
+            </span>
+
+        </a>
+
+
+        <!-- Navigation -->
+
+        <div class="admin-nav-label">WORKSPACE</div>
+
+        <nav class="admin-nav">
+
+            <a href="#dashboard" class="admin-nav-link active">
+                <span class="admin-nav-icon">▦</span>
+                Dashboard
+            </a>
+
+            <div class="admin-nav-label">PLATFORM MANAGEMENT</div>
+
+            <a href="#users" class="admin-nav-link">
+                <span class="admin-nav-icon">♙</span>
+                User Accounts
+            </a>
+
+            <a href="#doctors" class="admin-nav-link">
+                <span class="admin-nav-icon">⚕</span>
+                Doctor Directory
+            </a>
+
+            <a href="#hospitals" class="admin-nav-link">
+                <span class="admin-nav-icon">✚</span>
+                Hospitals & Facilities
+            </a>
+
+            <a href="#services" class="admin-nav-link">
+                <span class="admin-nav-icon">▤</span>
+                Cancer Services
+            </a>
+
+            <a href="#costs" class="admin-nav-link">
+                <span class="admin-nav-icon">৳</span>
+                Treatment Costs
+            </a>
+
+            <a href="#appointments" class="admin-nav-link">
+                <span class="admin-nav-icon">▣</span>
+                Appointments
+            </a>
+
+            <div class="admin-nav-label">OVERSIGHT</div>
+
+            <a href="#verification" class="admin-nav-link">
+                <span class="admin-nav-icon">✓</span>
+                Doctor Verification
+            </a>
+
+        </nav>
+
+
+        <!-- Sidebar Bottom -->
+
+        <div class="admin-sidebar-bottom">
+
+            <div class="admin-sidebar-note">
+                <span class="admin-note-icon">✦</span>
+                <strong>Platform Administration</strong>
+                <p>
+                    Maintain reliable cancer-care information
+                    for patients and doctors.
+                </p>
+            </div>
+
+            <a asp-controller="Home"
+               asp-action="Index"
+               class="admin-nav-link admin-home-link">
+
+                <span class="admin-nav-icon">⌂</span>
+                Back to Home
+            </a>
+
+            <form asp-controller="Account"
+                  asp-action="Logout"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <button type="submit" class="admin-logout">
+                    <span class="admin-nav-icon">↪</span>
+                    Sign Out
+                </button>
+
+            </form>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="admin-main">
+
+        <!-- TOPBAR -->
+
+        <header class="admin-topbar">
+
+            <div class="admin-topbar-title">
+                <span class="admin-breadcrumb">
+                    Cancer Care Hub / Admin Workspace
+                </span>
+
+                <h1>Admin Dashboard</h1>
+            </div>
+
+            <div class="admin-topbar-right">
+
+                <div class="admin-topbar-date">
+                    <span>◷</span>
+                    <span>@DateTime.Now.ToString("dd MMM yyyy")</span>
+                </div>
+
+                <div class="admin-topbar-user">
+
+                    <div class="admin-avatar">A</div>
+
+                    <div class="admin-user-info">
+                        <strong>Administrator</strong>
+                        <span>Platform Admin</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD CONTENT -->
+
+        <div class="admin-content" id="dashboard">
+
+
+            <!-- =====================================
+                 WELCOME BANNER
+            ====================================== -->
+
+            <section class="admin-welcome">
+
+                <div class="admin-welcome-content">
+
+                    <span class="admin-welcome-label">
+                        ADMINISTRATOR WORKSPACE
+                    </span>
+
+                    <h2>Welcome back, Admin!</h2>
+
+                    <p>
+                        Manage hospitals, doctor information,
+                        cancer services and platform activities
+                        from one central workspace.
+                    </p>
+
+                    <a href="#management" class="admin-welcome-button">
+                        Explore Management
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+                <div class="admin-welcome-visual">
+                    <div class="admin-welcome-symbol">+</div>
+                    <span>CARE · TRUST · INFORMATION</span>
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 PLATFORM OVERVIEW
+            ====================================== -->
+
+            <section class="admin-section">
+
+                <div class="admin-section-heading">
+
+                    <div>
+                        <h3>Platform Overview</h3>
+                        <p>
+                            Key records managed by the platform.
+                        </p>
+                    </div>
+
+                    <span class="admin-data-label">
+                        LIVE DATA · NEXT PHASE
+                    </span>
+
+                </div>
+
+
+                <div class="admin-metrics">
+
+                    <!-- Users -->
+
+                    <div class="admin-metric">
+
+                        <div class="admin-metric-top">
+                            <span class="admin-metric-icon purple">
+                                ♙
+                            </span>
+
+                            <span class="admin-metric-caption">
+                                REGISTERED USERS
+                            </span>
+                        </div>
+
+                        <h2>—</h2>
+                        <p>Patients, doctors and admins</p>
+
+                    </div>
+
+
+                    <!-- Doctors -->
+
+                    <div class="admin-metric">
+
+                        <div class="admin-metric-top">
+                            <span class="admin-metric-icon blue">
+                                ⚕
+                            </span>
+
+                            <span class="admin-metric-caption">
+                                DOCTORS
+                            </span>
+                        </div>
+
+                        <h2>—</h2>
+                        <p>Doctor directory records</p>
+
+                    </div>
+
+
+                    <!-- Hospitals -->
+
+                    <div class="admin-metric">
+
+                        <div class="admin-metric-top">
+                            <span class="admin-metric-icon green">
+                                ✚
+                            </span>
+
+                            <span class="admin-metric-caption">
+                                HOSPITALS
+                            </span>
+                        </div>
+
+                        <h2>—</h2>
+                        <p>Healthcare facility records</p>
+
+                    </div>
+
+
+                    <!-- Pending Verification -->
+
+                    <div class="admin-metric">
+
+                        <div class="admin-metric-top">
+                            <span class="admin-metric-icon orange">
+                                ✓
+                            </span>
+
+                            <span class="admin-metric-caption">
+                                PENDING VERIFICATION
+                            </span>
+                        </div>
+
+                        <h2>—</h2>
+                        <p>Doctor credentials to review</p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 MANAGEMENT MODULES
+            ====================================== -->
+
+            <section class="admin-section" id="management">
+
+                <div class="admin-section-heading">
+
+                    <div>
+                        <h3>Platform Management</h3>
+                        <p>
+                            Manage the core information of Cancer Care Hub.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="admin-feature-grid">
+
+
+                    <!-- User Accounts -->
+
+                    <article class="admin-feature-card" id="users">
+
+                        <div class="admin-feature-icon purple">
+                            ♙
+                        </div>
+
+                        <h4>User Accounts</h4>
+
+                        <p>
+                            Review and manage registered patient,
+                            doctor and administrator accounts.
+                        </p>
+
+                        <span class="admin-feature-status">
+                            MANAGEMENT MODULE
+                        </span>
+
+                    </article>
+
+
+                    <!-- Doctor Directory -->
+
+                    <article class="admin-feature-card" id="doctors">
+
+                        <div class="admin-feature-icon blue">
+                            ⚕
+                        </div>
+
+                        <h4>Doctor Directory</h4>
+
+                        <p>
+                            Manage doctor profiles, specialties
+                            and hospital affiliations.
+                        </p>
+
+                        <span class="admin-feature-status">
+                            MANAGEMENT MODULE
+                        </span>
+
+                    </article>
+
+
+                    <!-- Hospitals -->
+
+                    <article class="admin-feature-card" id="hospitals">
+
+                        <div class="admin-feature-icon green">
+                            ✚
+                        </div>
+
+                        <h4>Hospitals & Facilities</h4>
+
+                        <p>
+                            Maintain hospital information,
+                            locations and facility records.
+                        </p>
+
+                        <span class="admin-feature-status">
+                            MANAGEMENT MODULE
+                        </span>
+
+                    </article>
+
+
+                    <!-- Cancer Services -->
+
+                    <article class="admin-feature-card" id="services">
+
+                        <div class="admin-feature-icon orange">
+                            ▤
+                        </div>
+
+                        <h4>Cancer Services</h4>
+
+                        <p>
+                            Organize cancer-care service categories
+                            and available facility information.
+                        </p>
+
+                        <span class="admin-feature-status">
+                            MANAGEMENT MODULE
+                        </span>
+
+                    </article>
+
+
+                    <!-- Treatment Costs -->
+
+                    <article class="admin-feature-card" id="costs">
+
+                        <div class="admin-feature-icon teal">
+                            ৳
+                        </div>
+
+                        <h4>Treatment Costs</h4>
+
+                        <p>
+                            Maintain source-backed treatment
+                            cost information and references.
+                        </p>
+
+                        <span class="admin-feature-status">
+                            MANAGEMENT MODULE
+                        </span>
+
+                    </article>
+
+
+                    <!-- Appointments -->
+
+                    <article class="admin-feature-card" id="appointments">
+
+                        <div class="admin-feature-icon pink">
+                            ▣
+                        </div>
+
+                        <h4>Appointments</h4>
+
+                        <p>
+                            Review appointment activity and
+                            patient request records.
+                        </p>
+
+                        <span class="admin-feature-status">
+                            MANAGEMENT MODULE
+                        </span>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 DOCTOR VERIFICATION
+            ====================================== -->
+
+            <section class="admin-section"
+                     id="verification">
+
+                <div class="admin-verification-panel">
+
+                    <div class="admin-verification-icon">
+                        ✓
+                    </div>
+
+                    <div class="admin-verification-content">
+
+                        <h3>Doctor Verification</h3>
+
+                        <p>
+                            Review submitted doctor credentials
+                            before their profiles are published
+                            on the patient-facing directory.
+                        </p>
+
+                    </div>
+
+                    <span class="admin-verification-status">
+                        NEXT PHASE
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 FOOTER
+            ====================================== -->
+
+            <footer class="admin-footer">
+                <span>
+                    © @DateTime.Now.Year Cancer Care Hub Bangladesh
+                </span>
+
+                <span>
+                    Admin Workspace
+                </span>
+            </footer>
+
+
+        </div>
+
+    </main>
+
 </div>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

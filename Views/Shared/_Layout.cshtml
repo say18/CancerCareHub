@@ -1,88 +1,183 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CancerCareHub</title>
-    <script type="importmap"></script>
+
+    <title>@ViewData["Title"] - Cancer Care Hub Bangladesh</title>
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!-- ASP.NET Core Generated CSS -->
     <link rel="stylesheet" href="~/CancerCareHub.styles.css" asp-append-version="true" />
+
+    <!-- Main Website CSS: Homepage, Login, Register -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!-- Additional page-specific CSS can be added through Styles section -->
+    @await RenderSectionAsync("Styles", required: false)
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-    <span class="brand-mark">+</span>
-    <span class="brand-name">Cancer Care Hub</span>
-    <span class="brand-country">BANGLADESH</span>
-</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+
+    <!-- ============================= -->
+    <!-- WEBSITE HEADER / NAVBAR       -->
+    <!-- ============================= -->
+
+    <header class="cc-site-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+
+                <!-- Website Logo / Brand -->
+                <a class="navbar-brand cc-navbar-brand"
+                   asp-controller="Home"
+                   asp-action="Index">
+
+                    <span class="brand-mark">+</span>
+                    <span class="brand-name">Cancer Care Hub</span>
+                    <span class="brand-country">BANGLADESH</span>
+                </a>
+
+                <!-- Mobile Navigation Toggle -->
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainNavigation"
+                        aria-controls="mainNavigation"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        
-<ul class="navbar-nav flex-grow-1">
 
-    <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
-    </li>
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="mainNavigation">
 
-    <li class="nav-item">
-        <a class="nav-link" href="/#hospitals">Hospitals</a>
-    </li>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-    <li class="nav-item">
-        <a class="nav-link" href="/#services">Cancer Services</a>
-    </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Index">
+                                Home
+                            </a>
+                        </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="/#doctors">Find Doctors</a>
-    </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Index"
+                               asp-fragment="hospitals">
+                                Hospitals
+                            </a>
+                        </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="/#information">About</a>
-    </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Index"
+                               asp-fragment="services">
+                                Cancer Services
+                            </a>
+                        </li>
 
-</ul>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Index"
+                               asp-fragment="doctors">
+                                Find Doctors
+                            </a>
+                        </li>
 
-<div class="d-flex align-items-center gap-2">
-
-    <a asp-controller="Account"
-       asp-action="Login"
-       class="btn btn-outline-success">
-        Login
-    </a>
-
-    <a asp-controller="Account"
-       asp-action="Register"
-       class="btn btn-success">
-        Register
-    </a>
-
-</div>
-
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Index"
+                               asp-fragment="information">
+                                About
+                            </a>
+                        </li>
 
                     </ul>
+
+                    <!-- Login / Register Buttons -->
+                    <div class="cc-nav-actions">
+
+                        <a asp-controller="Account"
+                           asp-action="Login"
+                           class="btn cc-nav-login">
+                            Login
+                        </a>
+
+                        <a asp-controller="Account"
+                           asp-action="Register"
+                           class="btn cc-nav-register">
+                            Register
+                        </a>
+
+                    </div>
+
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-       
+
+    <!-- ============================= -->
+    <!-- MAIN WEBSITE CONTENT          -->
+    <!-- ============================= -->
+
+    <main id="main-content" role="main">
+
+        @RenderBody()
+
+    </main>
+
+
+    <!-- ============================= -->
+    <!-- WEBSITE FOOTER                -->
+    <!-- ============================= -->
+
+    <footer class="cc-site-footer">
+
+        <div class="container cc-footer-inner">
+
+            <div>
+                <a class="cc-footer-brand"
+                   asp-controller="Home"
+                   asp-action="Index">
+
+                    Cancer Care Hub <span>Bangladesh</span>
+
+                </a>
+
+                <p>Clearer access to cancer-care information.</p>
+            </div>
+
+            <span>
+                © @DateTime.UtcNow.Year Cancer Care Hub Bangladesh
+            </span>
+
+        </div>
+
     </footer>
+
+
+    <!-- ============================= -->
+    <!-- JAVASCRIPT FILES              -->
+    <!-- ============================= -->
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Page-specific JavaScript -->
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

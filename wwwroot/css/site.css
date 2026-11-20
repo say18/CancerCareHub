@@ -1,20 +1,35 @@
 
-/* ========================================
+/* =========================================================
    CANCER CARE HUB BANGLADESH
-   Homepage design system
-======================================== */
+   MAIN WEBSITE STYLESHEET
+
+   Contains ONLY:
+   1. Global website styles
+   2. Website Header / Navbar
+   3. Homepage sections
+   4. Website Footer
+   5. Login page
+   6. Register page
+
+   Dashboard CSS is maintained separately.
+   ========================================================= */
+
+
+/* =========================================================
+   01. GLOBAL WEBSITE STYLES
+   Applies to Home, Login and Register
+   ========================================================= */
 
 :root {
-    --cc-navy: #102b3f;
-    --cc-navy-light: #193c51;
-    --cc-teal: #087f70;
-    --cc-teal-dark: #06685d;
-    --cc-mint: #eaf6f2;
-    --cc-background: #f7faf9;
-    --cc-text: #263746;
-    --cc-muted: #657785;
-    --cc-border: #e1e9e7;
+    --cc-ink: #173047;
+    --cc-muted: #65778a;
+    --cc-teal: #138a7b;
+    --cc-teal-dark: #0e7168;
+    --cc-navy: #15334c;
+    --cc-border: #e3eaf0;
+    --cc-soft: #f4f8fa;
     --cc-white: #ffffff;
+    --cc-shadow: 0 16px 45px rgba(26, 55, 78, .09);
 }
 
 html {
@@ -22,54 +37,190 @@ html {
 }
 
 body {
-    color: var(--cc-text);
-    background: var(--cc-white);
-    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    color: var(--cc-ink);
+    background: #fff;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
 }
+
+#main-content {
+    min-height: 62vh;
+}
+
+a {
+    color: var(--cc-teal-dark);
+}
+
+a:hover {
+    color: #095e58;
+}
+
+
+/* =========================================================
+   02. WEBSITE HEADER / NAVIGATION
+   Used by Home, Login and Register layout
+   ========================================================= */
+
+.cc-site-header {
+    position: relative;
+    z-index: 20;
+    background: rgba(255,255,255,.97);
+    border-bottom: 1px solid #e8edf1;
+    box-shadow: 0 4px 18px rgba(24, 50, 70, .045);
+}
+
+.cc-site-header .navbar {
+    min-height: 76px;
+    padding: 11px 0;
+}
+
+.cc-navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 28px;
+    color: var(--cc-navy) !important;
+    white-space: nowrap;
+}
+
+.brand-mark {
+    width: 39px;
+    height: 39px;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--cc-teal);
+    color: #fff;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.brand-name {
+    color: var(--cc-navy);
+    font-size: 17px;
+    font-weight: 750;
+    letter-spacing: -.3px;
+}
+
+.brand-country {
+    align-self: center;
+    color: #8494a4;
+    font-size: 9px;
+    font-weight: 750;
+    letter-spacing: 1.2px;
+    padding-left: 9px;
+    border-left: 1px solid #dce5ec;
+}
+
+.cc-site-header .navbar-nav {
+    gap: 5px;
+}
+
+.cc-site-header .navbar-nav .nav-link {
+    color: #526579;
+    padding: 10px 11px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background .18s ease, color .18s ease;
+}
+
+.cc-site-header .navbar-nav .nav-link:hover,
+.cc-site-header .navbar-nav .nav-link:focus {
+    color: var(--cc-teal-dark);
+    background: #eef8f6;
+}
+
+.cc-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 15px;
+}
+
+.cc-nav-login,
+.cc-nav-register {
+    min-width: 84px;
+    padding: 9px 17px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.cc-nav-login {
+    color: var(--cc-teal-dark);
+    border: 1px solid #acd8d0;
+    background: #fff;
+}
+
+.cc-nav-login:hover {
+    color: #fff;
+    border-color: var(--cc-teal);
+    background: var(--cc-teal);
+}
+
+.cc-nav-register {
+    color: #fff;
+    border: 1px solid var(--cc-teal);
+    background: var(--cc-teal);
+}
+
+.cc-nav-register:hover {
+    color: #fff;
+    border-color: var(--cc-teal-dark);
+    background: var(--cc-teal-dark);
+}
+
+
+/* =========================================================
+   03. HOMEPAGE HERO SECTION
+   ========================================================= */
 
 .cc-hero {
     position: relative;
     overflow: hidden;
+    padding: 86px 0 82px;
     background:
-        radial-gradient(ellipse at 90% 15%, #d8f0e8 0, transparent 36%),
-        linear-gradient(135deg, #f6faf9 0%, #edf7f3 100%);
-    padding: 90px 0 100px;
+        radial-gradient(circle at 82% 18%, rgba(40, 171, 151, .12), transparent 28%),
+        linear-gradient(135deg, #f1f8f8 0%, #f7fafc 52%, #edf6f5 100%);
 }
 
 .cc-hero-container {
     position: relative;
     z-index: 1;
+    max-width: 1240px;
 }
 
 .cc-eyebrow,
 .cc-section-label {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    color: var(--cc-teal-dark);
-    font-size: 0.76rem;
-    font-weight: 750;
-    letter-spacing: 1.5px;
-    margin-bottom: 22px;
+    gap: 9px;
+    color: #258477;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.65px;
 }
 
 .cc-status-dot {
-    display: inline-block;
     width: 8px;
     height: 8px;
+    display: inline-block;
     border-radius: 50%;
-    background: #16a085;
-    flex-shrink: 0;
+    background: #1ca58e;
+    box-shadow: 0 0 0 4px rgba(28,165,142,.12);
 }
 
 .cc-hero-title {
-    max-width: 700px;
-    color: var(--cc-navy);
-    font-size: clamp(2.6rem, 5vw, 4.25rem);
-    font-weight: 750;
-    letter-spacing: -2.2px;
+    max-width: 780px;
+    margin: 19px 0 18px;
+    color: #17364e;
+    font-size: clamp(2.35rem, 4.5vw, 3.75rem);
+    font-weight: 780;
+    letter-spacing: -2px;
     line-height: 1.12;
-    margin: 0;
 }
 
 .cc-hero-title span {
@@ -77,11 +228,11 @@ body {
 }
 
 .cc-hero-description {
-    max-width: 610px;
-    color: var(--cc-muted);
-    font-size: 1.08rem;
+    max-width: 680px;
+    margin: 0;
+    color: #617487;
+    font-size: 15px;
     line-height: 1.85;
-    margin-top: 24px;
 }
 
 .cc-btn-primary,
@@ -89,385 +240,640 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
-    min-height: 52px;
-    padding: 13px 22px;
-    border-radius: 8px;
-    font-weight: 650;
-    transition: background-color 0.2s ease,
-                color 0.2s ease,
-                transform 0.2s ease;
+    gap: 12px;
+    min-height: 47px;
+    padding: 12px 21px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 750;
+    text-decoration: none;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
 }
 
 .cc-btn-primary {
-    background: var(--cc-teal);
+    color: #fff;
     border: 1px solid var(--cc-teal);
-    color: var(--cc-white);
+    background: var(--cc-teal);
+    box-shadow: 0 8px 18px rgba(19,138,123,.18);
 }
 
 .cc-btn-primary:hover {
-    background: var(--cc-teal-dark);
+    color: #fff;
     border-color: var(--cc-teal-dark);
-    color: var(--cc-white);
+    background: var(--cc-teal-dark);
     transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(19,138,123,.22);
 }
 
 .cc-btn-outline {
-    background: transparent;
-    border: 1px solid #b8cdc7;
-    color: var(--cc-navy);
+    color: var(--cc-teal-dark);
+    border: 1px solid #b6d8d3;
+    background: rgba(255,255,255,.74);
 }
 
 .cc-btn-outline:hover {
     color: var(--cc-teal-dark);
-    background: var(--cc-white);
-    border-color: var(--cc-teal);
+    border-color: #77bdb2;
+    background: #fff;
+    transform: translateY(-2px);
 }
 
 .cc-trust-note {
     display: flex;
     align-items: center;
     gap: 9px;
-    color: var(--cc-muted);
-    font-size: 0.84rem;
-    margin-top: 28px;
+    margin-top: 24px;
+    color: #647c86;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 .cc-trust-check {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     width: 21px;
     height: 21px;
+    display: inline-grid;
+    place-items: center;
     border-radius: 50%;
-    background: #d5eee5;
-    color: var(--cc-teal-dark);
+    color: #138a7b;
+    background: #dff2ed;
+    font-size: 12px;
     font-weight: 800;
 }
 
+
+/* =========================================================
+   04. HOMEPAGE HERO NAVIGATION CARD
+   ========================================================= */
+
 .cc-hero-panel {
-    background: var(--cc-white);
-    border: 1px solid rgba(16, 43, 63, 0.08);
-    border-radius: 18px;
-    padding: 30px;
-    box-shadow: 0 22px 65px rgba(16, 43, 63, 0.09);
+    position: relative;
+    padding: 29px;
+    border: 1px solid rgba(217, 231, 233, .95);
+    border-radius: 19px;
+    background: rgba(255,255,255,.94);
+    box-shadow: 0 22px 55px rgba(33, 76, 88, .11);
 }
 
 .cc-panel-top {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 22px;
+    gap: 12px;
+    margin-bottom: 21px;
 }
 
 .cc-panel-label {
-    color: var(--cc-teal);
-    font-size: 0.68rem;
-    font-weight: 750;
-    letter-spacing: 1.3px;
+    color: #27887d;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
 }
 
 .cc-panel-title {
-    color: var(--cc-navy);
-    font-size: 1.45rem;
+    max-width: 330px;
+    margin: 7px 0 0;
+    color: #1b354b;
+    font-size: 22px;
     font-weight: 750;
-    line-height: 1.4;
-    margin-top: 9px;
+    line-height: 1.28;
 }
 
 .cc-panel-symbol {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    flex-shrink: 0;
-    background: var(--cc-mint);
-    color: var(--cc-teal);
-    border-radius: 12px;
-    font-size: 1.7rem;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    color: #178d7e;
+    background: #e7f6f2;
+    font-size: 23px;
 }
 
 .cc-quick-link {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 17px 0;
+    gap: 13px;
+    padding: 14px 10px;
+    border-top: 1px solid #edf1f3;
     color: inherit;
     text-decoration: none;
-    border-top: 1px solid var(--cc-border);
+    transition: background .18s ease, padding .18s ease;
 }
 
-.cc-quick-link:hover .cc-link-arrow {
-    color: var(--cc-teal);
-    transform: translateX(4px);
+.cc-quick-link:hover {
+    padding-left: 14px;
+    color: inherit;
+    background: #f5fbf9;
 }
 
 .cc-link-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 43px;
-    height: 43px;
-    flex-shrink: 0;
+    width: 37px;
+    height: 37px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
     border-radius: 10px;
-    background: var(--cc-mint);
-    color: var(--cc-teal-dark);
-    font-weight: 750;
+    color: #178b7d;
+    background: #e8f6f2;
+    font-size: 13px;
+    font-weight: 800;
 }
 
 .cc-link-copy {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: 5px;
     min-width: 0;
+    flex: 1;
 }
 
 .cc-link-copy strong {
-    color: var(--cc-navy);
-    font-size: 0.92rem;
+    display: block;
+    color: #29445a;
+    font-size: 13px;
+    font-weight: 750;
 }
 
 .cc-link-copy small {
-    color: var(--cc-muted);
-    font-size: 0.78rem;
+    display: block;
+    margin-top: 3px;
+    color: #8798a5;
+    font-size: 10px;
     line-height: 1.5;
 }
 
 .cc-link-arrow {
-    color: #82938f;
-    transition: transform 0.2s ease;
+    color: #198d80;
+    font-size: 18px;
 }
 
 .cc-panel-footer {
     display: flex;
     align-items: center;
     gap: 9px;
-    background: var(--cc-background);
-    color: var(--cc-muted);
-    border-radius: 8px;
-    padding: 13px;
-    margin-top: 10px;
-    font-size: 0.77rem;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #edf1f3;
+    color: #788c98;
+    font-size: 10px;
 }
 
+.cc-panel-footer .cc-status-dot {
+    width: 7px;
+    height: 7px;
+}
+
+
+/* =========================================================
+   05. HOMEPAGE INTRO + DIRECTORY
+   ========================================================= */
+
 .cc-intro-section {
-    padding: 85px 0 45px;
+    padding: 82px 0 42px;
+    background: #fff;
 }
 
 .cc-section-title {
-    color: var(--cc-navy);
-    font-size: clamp(1.8rem, 3vw, 2.55rem);
-    font-weight: 750;
-    letter-spacing: -0.8px;
-    line-height: 1.25;
-    margin: 0;
+    margin: 10px 0 0;
+    color: #19364d;
+    font-size: clamp(1.8rem, 3vw, 2.45rem);
+    font-weight: 760;
+    letter-spacing: -.8px;
+    line-height: 1.22;
 }
 
 .cc-section-description {
-    color: var(--cc-muted);
+    max-width: 520px;
+    margin: 0;
+    color: #6f8090;
+    font-size: 13px;
     line-height: 1.9;
-    margin-bottom: 4px;
 }
 
 .cc-directory-section {
-    padding: 35px 0 100px;
+    padding: 35px 0 90px;
+    background: #fff;
 }
 
 .cc-section-heading {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 24px;
-    margin-bottom: 35px;
+    gap: 22px;
+    margin-bottom: 27px;
 }
 
 .cc-heading-note {
-    color: var(--cc-muted);
-    font-size: 0.9rem;
-    margin-bottom: 5px;
+    margin: 0 0 5px;
+    color: #8594a2;
+    font-size: 12px;
 }
 
 .cc-directory-card {
+    position: relative;
     height: 100%;
-    padding: 30px 27px;
-    background: var(--cc-white);
-    border: 1px solid var(--cc-border);
-    border-radius: 14px;
-    transition: border-color 0.2s ease,
-                box-shadow 0.2s ease,
-                transform 0.2s ease;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 26px;
+    border: 1px solid #e5edf0;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(28, 58, 77, .045);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
 .cc-directory-card:hover {
-    border-color: #a8d4c7;
-    box-shadow: 0 15px 38px rgba(16, 43, 63, 0.07);
     transform: translateY(-4px);
+    border-color: #c4e0da;
+    box-shadow: 0 16px 32px rgba(28,58,77,.09);
 }
 
 .cc-card-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: var(--cc-mint);
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 18px;
     border-radius: 12px;
-    color: var(--cc-teal-dark);
-    font-size: 1.15rem;
-    font-weight: 750;
-    margin-bottom: 25px;
+    color: #168b7d;
+    background: #e8f6f2;
+    font-size: 14px;
+    font-weight: 800;
 }
 
 .cc-card-kicker {
-    display: block;
-    color: var(--cc-muted);
-    font-size: 0.67rem;
-    font-weight: 750;
-    letter-spacing: 1.2px;
-    margin-bottom: 12px;
+    color: #8a9aa7;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.1px;
 }
 
 .cc-directory-card h3 {
-    color: var(--cc-navy);
-    font-size: 1.2rem;
+    margin: 9px 0 9px;
+    color: #213c52;
+    font-size: 18px;
     font-weight: 750;
-    line-height: 1.45;
+    line-height: 1.35;
 }
 
 .cc-directory-card p {
-    color: var(--cc-muted);
-    font-size: 0.91rem;
+    margin: 0 0 18px;
+    color: #718393;
+    font-size: 12px;
     line-height: 1.8;
-    margin-top: 12px;
-    margin-bottom: 25px;
 }
 
 .cc-card-link {
-    display: flex;
-    justify-content: space-between;
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    color: var(--cc-teal-dark);
-    font-size: 0.84rem;
-    font-weight: 700;
+    gap: 8px;
+    margin-top: auto;
+    color: #158779;
+    font-size: 11px;
+    font-weight: 750;
     text-decoration: none;
 }
 
 .cc-card-link:hover {
-    color: var(--cc-navy);
+    color: #0d615a;
+    gap: 12px;
 }
 
+
+/* =========================================================
+   06. HOMEPAGE TRANSPARENCY SECTION
+   ========================================================= */
+
 .cc-transparency-section {
-    padding: 85px 0;
-    background: var(--cc-navy);
+    padding: 83px 0;
+    color: #fff;
+    background: linear-gradient(120deg, #163a53 0%, #174f5b 100%);
 }
 
 .cc-label-light {
-    color: #9fe1d0;
+    color: #8dd6c8;
 }
 
 .cc-transparency-title {
-    max-width: 570px;
-    color: var(--cc-white);
-    font-size: clamp(2rem, 3.5vw, 3.1rem);
-    font-weight: 750;
-    letter-spacing: -1px;
+    max-width: 530px;
+    margin: 14px 0 17px;
+    color: #fff;
+    font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+    font-weight: 760;
+    letter-spacing: -.8px;
     line-height: 1.2;
 }
 
 .cc-transparency-description {
-    max-width: 550px;
-    color: #c5d4dd;
+    max-width: 530px;
+    margin: 0;
+    color: #c4d6dc;
+    font-size: 13px;
     line-height: 1.9;
-    margin-top: 22px;
-    margin-bottom: 0;
 }
 
 .cc-principle {
     display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 23px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    gap: 17px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,.13);
 }
 
-.cc-principle:first-child {
-    padding-top: 0;
+.cc-principle:last-child {
+    border-bottom: 0;
 }
 
 .cc-principle-number {
-    color: #8dd9c5;
-    font-size: 0.83rem;
-    font-weight: 750;
-    padding-top: 3px;
+    width: 37px;
+    height: 37px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    color: #a5e0d5;
+    background: rgba(255,255,255,.1);
+    font-size: 11px;
+    font-weight: 800;
 }
 
 .cc-principle h3 {
-    color: var(--cc-white);
-    font-size: 1.05rem;
-    font-weight: 700;
+    margin: 1px 0 5px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 750;
 }
 
 .cc-principle p {
-    color: #c5d4dd;
-    font-size: 0.88rem;
+    margin: 0;
+    color: #bed1d6;
+    font-size: 11px;
     line-height: 1.7;
-    margin-bottom: 0;
 }
 
+
+/* =========================================================
+   07. HOMEPAGE CTA + DISCLAIMER
+   ========================================================= */
+
 .cc-cta-section {
-    padding: 85px 0;
+    padding: 76px 0;
+    background: #f3f8f8;
 }
 
 .cc-cta-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 35px;
-    padding: 42px;
-    background: var(--cc-background);
-    border: 1px solid var(--cc-border);
-    border-radius: 16px;
+    gap: 28px;
+    padding: 35px 39px;
+    border: 1px solid #deebe9;
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: 0 12px 35px rgba(28,58,77,.055);
 }
 
 .cc-cta-card h2 {
-    max-width: 600px;
-    color: var(--cc-navy);
-    font-size: clamp(1.7rem, 3vw, 2.3rem);
-    font-weight: 750;
-    line-height: 1.3;
+    margin: 10px 0 8px;
+    color: #1c3b50;
+    font-size: 23px;
+    font-weight: 760;
 }
 
 .cc-cta-card p {
     max-width: 620px;
-    color: var(--cc-muted);
+    margin: 0;
+    color: #728493;
+    font-size: 12px;
     line-height: 1.8;
-    margin: 12px 0 0;
+}
+
+.cc-cta-card .cc-btn-primary {
+    flex: 0 0 auto;
 }
 
 .cc-disclaimer {
-    padding: 30px 0;
-    background: #f3f6f5;
-    border-top: 1px solid var(--cc-border);
+    padding: 28px 0;
+    background: #fff;
 }
 
 .cc-disclaimer strong {
-    color: var(--cc-navy);
-    font-size: 0.86rem;
+    display: block;
+    margin-bottom: 7px;
+    color: #4d6273;
+    font-size: 11px;
 }
 
 .cc-disclaimer p {
-    max-width: 900px;
-    color: var(--cc-muted);
-    font-size: 0.82rem;
+    max-width: 1050px;
+    margin: 0;
+    color: #8795a2;
+    font-size: 10px;
     line-height: 1.8;
-    margin: 8px 0 0;
+}
+
+
+/* =========================================================
+   08. WEBSITE FOOTER
+   ========================================================= */
+
+.cc-site-footer {
+    padding: 26px 0;
+    border-top: 1px solid #e8eef1;
+    background: #f8fafb;
+}
+
+.cc-footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.cc-footer-brand {
+    color: #1c3a50;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.cc-footer-brand span {
+    color: #82929f;
+    font-size: 10px;
+    font-weight: 650;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+}
+
+.cc-footer-inner p {
+    margin: 5px 0 0;
+    color: #8b9aa5;
+    font-size: 10px;
+}
+
+.cc-footer-inner > span {
+    color: #8b9aa5;
+    font-size: 10px;
+}
+
+/* Existing Bootstrap footer compatibility */
+.footer {
+    position: relative;
+    line-height: normal;
+    border: 0 !important;
+}
+
+
+/* =========================================================
+   09. LOGIN + REGISTER PAGE
+   Shared authentication form styling
+   ========================================================= */
+
+main > .container.mt-5.mb-5 {
+    max-width: 100%;
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    padding-top: 55px;
+    padding-bottom: 55px;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+main > .container.mt-5.mb-5 > .row {
+    width: 100%;
+}
+
+main > .container.mt-5.mb-5 .row > .col-md-5 {
+    flex: 0 1 460px;
+    width: 100%;
+    max-width: 460px;
+}
+
+main > .container.mt-5.mb-5 .row > .col-md-6 {
+    flex: 0 1 560px;
+    width: 100%;
+    max-width: 560px;
+}
+
+main > .container.mt-5.mb-5 .card {
+    overflow: hidden;
+    border: 1px solid #e4ecef !important;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 18px 48px rgba(29, 62, 82, .09) !important;
+}
+
+main > .container.mt-5.mb-5 .card-body {
+    padding: 37px !important;
+}
+
+main > .container.mt-5.mb-5 h2 {
+    color: #1b3a50;
+    font-size: 25px;
+    font-weight: 780;
+    letter-spacing: -.5px;
+}
+
+main > .container.mt-5.mb-5 .text-muted {
+    color: #7e8f9d !important;
+    font-size: 12px;
+}
+
+main > .container.mt-5.mb-5 .form-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #40576a;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+main > .container.mt-5.mb-5 .form-control {
+    min-height: 45px;
+    border: 1px solid #dce6eb;
+    border-radius: 8px;
+    padding: 10px 13px;
+    color: #263f53;
+    background: #fbfdfe;
+    font-size: 13px;
+    box-shadow: none;
+}
+
+main > .container.mt-5.mb-5 .form-control:focus {
+    border-color: #59b5a7;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(19,138,123,.11);
+}
+
+main > .container.mt-5.mb-5 .btn-success {
+    min-height: 45px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--cc-teal);
+    font-size: 13px;
+    font-weight: 750;
+}
+
+main > .container.mt-5.mb-5 .btn-success:hover {
+    background: var(--cc-teal-dark);
+}
+
+main > .container.mt-5.mb-5 .text-center a {
+    color: var(--cc-teal-dark);
+    font-size: 12px;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+main > .container.mt-5.mb-5 .text-center a:hover {
+    text-decoration: underline;
+}
+
+main > .container.mt-5.mb-5 .alert {
+    border-radius: 9px;
+    font-size: 12px;
+}
+
+main > .container.mt-5.mb-5 .text-danger {
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   OPTIONAL: OTP PAGE
+   Keep this block only if OTP uses the same authentication
+   container and input#Code.
+   ========================================================= */
+
+/*
+main > .container.mt-5.mb-5 input#Code {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 8px;
+}
+*/
+
+
+/* =========================================================
+   10. RESPONSIVE - HEADER AND HOMEPAGE
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+    header .navbar .navbar-collapse {
+        padding-top: 12px;
+    }
+
+    header .navbar .navbar-nav {
+        align-items: flex-start;
+    }
+
+    header .navbar .navbar-collapse > .d-flex {
+        padding: 8px 0 5px;
+    }
 }
 
 @media (max-width: 767.98px) {
+
     .cc-hero {
         padding: 55px 0 65px;
     }
@@ -514,37 +920,31 @@ body {
     }
 }
 
-/* Brand styling */
 
-.navbar-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    text-decoration: none;
+/* =========================================================
+   11. RESPONSIVE - AUTHENTICATION PAGES
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+    main > .container.mt-5.mb-5 {
+        padding: 35px 15px;
+    }
+
+    main > .container.mt-5.mb-5 .card-body {
+        padding: 25px 20px !important;
+    }
+
+    main > .container.mt-5.mb-5 .row > .col-md-5,
+    main > .container.mt-5.mb-5 .row > .col-md-6 {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+
+    .cc-footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }
 
-.brand-mark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    background: #087f70;
-    color: white;
-    border-radius: 9px;
-    font-size: 23px;
-    font-weight: 700;
-}
 
-.brand-name {
-    color: #102b3f;
-    font-size: 19px;
-    font-weight: 750;
-}
-
-.brand-country {
-    color: #087f70;
-    font-size: 9px;
-    font-weight: 750;
-    letter-spacing: 1px;
-}

@@ -1,21 +1,496 @@
 
 @{
+    Layout = null;
     ViewData["Title"] = "Patient Dashboard";
+
+    var fullName = ViewBag.FullName as string ?? "Patient";
+    var email = ViewBag.Email as string ?? "";
+
+    var initial = !string.IsNullOrWhiteSpace(fullName)
+        ? fullName.Substring(0, 1).ToUpper()
+        : "P";
 }
 
-<div class="container mt-5">
-    <h2>Patient Dashboard</h2>
-    <p>Welcome to Cancer Care Hub Bangladesh.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <h4>Patient Services</h4>
-    <ul>
-        <li>Find Hospitals</li>
-        <li>Find Doctors</li>
-        <li>View Cancer Services</li>
-        <li>Manage Appointment Requests</li>
-    </ul>
+    <title>Patient Dashboard | Cancer Care Hub Bangladesh</title>
 
-    <form asp-controller="Account" asp-action="Logout" method="post">
-        <button class="btn btn-danger" type="submit">Logout</button>
-    </form>
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Patient Dashboard CSS -->
+    <link rel="stylesheet"
+          href="~/css/patient-dashboard.css"
+          asp-append-version="true" />
+</head>
+
+<body class="ch-patient-page">
+
+<div class="ch-dashboard">
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="ch-sidebar ch-patient-sidebar">
+
+        <a asp-controller="Home"
+           asp-action="Index"
+           class="ch-brand">
+
+            <span class="ch-brand-icon">+</span>
+
+            <span>
+                <strong>Cancer Care Hub</strong>
+                <small>Bangladesh</small>
+            </span>
+        </a>
+
+        <div class="ch-side-label">PATIENT MENU</div>
+
+        <nav class="ch-nav">
+
+            <a href="#overview" class="ch-nav-link active">
+                <span class="ch-nav-icon">▦</span>
+                Dashboard
+            </a>
+
+            <a href="#find-care" class="ch-nav-link">
+                <span class="ch-nav-icon">⌕</span>
+                Find Doctors
+            </a>
+
+            <a href="#hospitals" class="ch-nav-link">
+                <span class="ch-nav-icon">✚</span>
+                Hospitals
+            </a>
+
+            <a href="#requests" class="ch-nav-link">
+                <span class="ch-nav-icon">▤</span>
+                My Requests
+            </a>
+
+            <a href="#saved" class="ch-nav-link">
+                <span class="ch-nav-icon">♡</span>
+                Saved Resources
+            </a>
+
+            <a href="#profile" class="ch-nav-link">
+                <span class="ch-nav-icon">♙</span>
+                My Profile
+            </a>
+
+        </nav>
+
+        <!-- Sidebar Bottom -->
+
+        <div class="ch-sidebar-bottom">
+
+            <div class="ch-sidebar-note">
+                <strong>We're here to help</strong>
+
+                <p>
+                    Explore available cancer-care information
+                    and organize your care-related activities.
+                </p>
+            </div>
+
+            <a asp-controller="Home"
+               asp-action="Index"
+               class="ch-nav-link">
+
+                <span class="ch-nav-icon">⌂</span>
+                Back to Website
+            </a>
+
+            <form asp-controller="Account"
+                  asp-action="Logout"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <button type="submit" class="ch-logout">
+                    <span class="ch-nav-icon">↪</span>
+                    Sign Out
+                </button>
+
+            </form>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="ch-main">
+
+        <!-- TOPBAR -->
+
+        <header class="ch-topbar">
+
+            <div>
+                <div class="ch-breadcrumb">
+                    Patient Portal / Dashboard
+                </div>
+
+                <h1>Patient Dashboard</h1>
+            </div>
+
+            <div class="ch-top-profile">
+
+                <span class="ch-patient-badge">
+                    Patient Account
+                </span>
+
+                <div class="ch-avatar patient-avatar">
+                    @initial
+                </div>
+
+                <div class="ch-profile-text">
+                    <strong>@fullName</strong>
+                    <small>@email</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =====================================
+             WELCOME SECTION
+        ====================================== -->
+
+        <section class="ch-welcome ch-patient-welcome"
+                 id="overview">
+
+            <div class="ch-welcome-content">
+
+                <span class="ch-eyebrow">
+                    YOUR PATIENT PORTAL
+                </span>
+
+                <h2>Hello, @fullName!</h2>
+
+                <p>
+                    Welcome to Cancer Care Hub Bangladesh.
+                    Explore cancer-care facilities, find doctors
+                    and organize your care-related requests.
+                </p>
+
+                <a href="#find-care" class="ch-primary-button">
+                    Explore Care Options
+                    <span>→</span>
+                </a>
+
+            </div>
+
+            <div class="ch-patient-illustration">
+
+                <div class="ch-illustration-circle">
+                    ✚
+                </div>
+
+                <span>Care. Information. Support.</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             STATISTICS
+        ====================================== -->
+
+        <section class="ch-section">
+
+            <div class="ch-section-heading">
+
+                <div>
+                    <h3>Your Overview</h3>
+                    <p>Keep track of your activities.</p>
+                </div>
+
+                <span class="ch-demo-label">
+                    DATA INTEGRATION PENDING
+                </span>
+
+            </div>
+
+
+            <div class="ch-stat-grid ch-patient-stat-grid">
+
+                <!-- Appointment Requests -->
+
+                <div class="ch-stat-card">
+
+                    <div class="ch-stat-top">
+                        <span class="ch-stat-icon blue">▤</span>
+                        <span class="ch-stat-caption">REQUESTS</span>
+                    </div>
+
+                    <h2>—</h2>
+
+                    <p>Your appointment requests</p>
+
+                </div>
+
+
+                <!-- Saved Doctors -->
+
+                <div class="ch-stat-card">
+
+                    <div class="ch-stat-top">
+                        <span class="ch-stat-icon green">⚕</span>
+                        <span class="ch-stat-caption">DOCTORS</span>
+                    </div>
+
+                    <h2>—</h2>
+
+                    <p>Your saved doctors</p>
+
+                </div>
+
+
+                <!-- Saved Resources -->
+
+                <div class="ch-stat-card">
+
+                    <div class="ch-stat-top">
+                        <span class="ch-stat-icon purple">♡</span>
+                        <span class="ch-stat-caption">SAVED</span>
+                    </div>
+
+                    <h2>—</h2>
+
+                    <p>Your saved resources</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             EXPLORE CARE OPTIONS
+        ====================================== -->
+
+        <section class="ch-section" id="find-care">
+
+            <div class="ch-section-heading">
+
+                <div>
+                    <h3>Explore Care Options</h3>
+
+                    <p>
+                        Discover cancer-care information
+                        available on the platform.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="ch-module-grid">
+
+                <!-- Find Doctors -->
+
+                <div class="ch-module-card patient-module">
+
+                    <div class="ch-module-icon doctor-icon">
+                        ⚕
+                    </div>
+
+                    <h4>Find a Doctor</h4>
+
+                    <p>
+                        Explore doctor profiles, specialties
+                        and hospital consultation information.
+                    </p>
+
+                    <span class="ch-coming-soon">
+                        Directory coming soon
+                    </span>
+
+                </div>
+
+
+                <!-- Hospitals -->
+
+                <div class="ch-module-card patient-module"
+                     id="hospitals">
+
+                    <div class="ch-module-icon hospital-icon">
+                        ✚
+                    </div>
+
+                    <h4>Explore Hospitals</h4>
+
+                    <p>
+                        Discover hospitals and available
+                        cancer-related services.
+                    </p>
+
+                    <span class="ch-coming-soon">
+                        Directory coming soon
+                    </span>
+
+                </div>
+
+
+                <!-- Saved Resources -->
+
+                <div class="ch-module-card patient-module"
+                     id="saved">
+
+                    <div class="ch-module-icon service-icon">
+                        ♡
+                    </div>
+
+                    <h4>Saved Resources</h4>
+
+                    <p>
+                        Keep useful doctors and hospital
+                        information together.
+                    </p>
+
+                    <span class="ch-coming-soon">
+                        Feature planned
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             APPOINTMENT REQUESTS
+        ====================================== -->
+
+        <section class="ch-section" id="requests">
+
+            <div class="ch-panel-card">
+
+                <div class="ch-panel-heading">
+
+                    <div>
+                        <h3>My Appointment Requests</h3>
+
+                        <p>
+                            Review the status of your submitted requests.
+                        </p>
+                    </div>
+
+                    <span class="ch-status-pending">
+                        Request tracking planned
+                    </span>
+
+                </div>
+
+
+                <div class="ch-empty-state ch-request-empty">
+
+                    <div class="ch-empty-icon">
+                        ▤
+                    </div>
+
+                    <strong>No appointment requests yet</strong>
+
+                    <span>
+                        Your submitted appointment requests
+                        will appear here.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PROFILE AND INFORMATION
+        ====================================== -->
+
+        <section class="ch-bottom-grid">
+
+            <!-- Profile -->
+
+            <div class="ch-panel-card" id="profile">
+
+                <h3>My Profile</h3>
+
+                <p>Your account information.</p>
+
+                <div class="ch-profile-info">
+
+                    <div class="ch-avatar patient-avatar">
+                        @initial
+                    </div>
+
+                    <div>
+                        <strong>@fullName</strong>
+                        <span>@email</span>
+                    </div>
+
+                </div>
+
+                <span class="ch-coming-soon">
+                    Profile management planned
+                </span>
+
+            </div>
+
+
+            <!-- Helpful Information -->
+
+            <div class="ch-panel-card ch-safety-card">
+
+                <div class="ch-safety-icon">
+                    ⓘ
+                </div>
+
+                <h3>Helpful Information</h3>
+
+                <p>
+                    Cancer Care Hub is an informational
+                    care-navigation platform. It does not
+                    provide diagnosis or replace professional
+                    medical advice.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer class="ch-footer">
+            © @DateTime.UtcNow.Year Cancer Care Hub Bangladesh.
+            Patient Portal.
+        </footer>
+
+    </main>
+
 </div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
